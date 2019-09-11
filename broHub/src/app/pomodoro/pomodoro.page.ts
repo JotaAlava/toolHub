@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
+import { PomodoroService } from 'src/app/pomodoro/pomodoro.service';
 
 enum Duration {
   //Work = 1500000,
@@ -43,7 +44,11 @@ export class PomodoroPage {
     this._state = newState;
   }
 
-  constructor() {
+  constructor(private ps: PomodoroService) {
+    ps.pomodoros.subscribe(pomodoros => {
+      console.log(pomodoros);
+    });
+    ps.loadPomodoros();
     this.state = this.buildWorkStateByDuration(Duration.Work);
   }
 

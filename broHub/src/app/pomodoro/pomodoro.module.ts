@@ -5,6 +5,7 @@ import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
 
 import { PomodoroPage } from './pomodoro.page';
+import { PomodoroService } from 'src/app/pomodoro/pomodoro.service';
 
 @NgModule({
   imports: [
@@ -18,6 +19,7 @@ import { PomodoroPage } from './pomodoro.page';
       }
     ])
   ],
-  declarations: [PomodoroPage]
+  declarations: [PomodoroPage],
+  providers: [PomodoroService]
 })
 export class PomodoroModule {}
